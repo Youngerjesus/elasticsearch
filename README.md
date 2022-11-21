@@ -1,6 +1,6 @@
 # elasticsearch
 
-Elasticsearch 를 공부하고 정리한 레파지토리 입니다.
+Elasticsearch 와 Lucene 을 공부하고 정리한 레파지토리 입니다.
 
 ***
 
