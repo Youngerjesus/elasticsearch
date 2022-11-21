@@ -1,4 +1,4 @@
-# elasticsearch
+5# elasticsearch
 
 Elasticsearch 를 공부하고 정리한 레파지토리 입니다.
 
@@ -17,3 +17,5 @@ Elasticsearch 를 공부하고 정리한 레파지토리 입니다.
 ## Lucene 
 
 - [Lucene 과의 만남](documents/lucene_과의_만남.md)
+
+- [Lucene 의 색인](documents/lucene_의_색인.md)
