@@ -349,9 +349,11 @@ GET kibana_sample_data_ecommerce/_search
   "_source": ["customer_full_name"],
   "query": {
     "match": {
-      "customer_full_name": "mary bailey"
+      "customer_full_name": {
+        "operator": "and",
+        "query": "mary bailey" 
+      }
     },
-    "operator": "and"
   }
 }
 ```
