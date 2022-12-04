@@ -14,6 +14,8 @@ Elasticsearch 와 Lucene 을 공부하고 정리한 레파지토리 입니다.
 
 - [Elasticsearch 궁금증들](documents/study_faq.md)
 
+- [Elasticsearch Usage](documents/elasticsearch_usage.md)
+
 ## Lucene 
 
 - [Lucene 과의 만남](documents/lucene_과의_만남.md)
