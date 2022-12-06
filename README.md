@@ -18,6 +18,8 @@ Elasticsearch 와 Lucene 을 공부하고 정리한 레파지토리 입니다.
 
 - [Rank Feature](documents/rank_feature.md)
 
+- [Elasticsearch Aggregation](documents/elasticsearch_aggregation.md)
+
 ## Lucene 
 
 - [Lucene 과의 만남](documents/lucene_과의_만남.md)
