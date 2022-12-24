@@ -20,6 +20,8 @@ Elasticsearch 와 Lucene 을 공부하고 정리한 레파지토리 입니다.
 
 - [Elasticsearch Aggregation](documents/elasticsearch_aggregation.md)
 
+- [검색을 위한 데이터 다루기](documents/검색을%20위한%20데이터%20다루기.md)
+
 ## Lucene 
 
 - [Lucene 과의 만남](documents/lucene_과의_만남.md)
