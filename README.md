@@ -24,6 +24,8 @@ Elasticsearch 와 Lucene 을 공부하고 정리한 레파지토리 입니다.
 
 - [실시간 인덱싱을 위한 Elasticsearch 구조를 찾아서](documents/실시간%20인덱싱을%20위한%20Elasticsearch%20구조를%20찾아서.md)
 
+- [Tune for indexing speed](documents/Tune%20for%20indxeing%20speed.md)
+
 ## Lucene 
 
 - [Lucene 과의 만남](documents/lucene_과의_만남.md)
