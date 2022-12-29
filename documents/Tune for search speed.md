@@ -345,14 +345,15 @@ GET index/_search
     - Match.ceil(4) -> 4
 
 
-그래서 Spider 에는 어떻게 쓸 수 있는데?
-pre-index 패턴도 쓸 수 있을 것 같은데
-QA 와 format 을 맞춰놔야겠다.
-Keyword 테이블에도 설정을 해놔야할듯.
+## 그래서 Spider 에는 어떻게 쓸 수 있는데?
 
-여러 필드를 하나로 모으는 copy_to 도 적용할 수 있을듯.
+- pre-index 패턴도 쓸 수 있을 것 같은데
+  - QA 와 format 을 맞춰놔야겠다.
+  - Keyword 테이블에도 설정을 해놔야할듯.
 
-Range 쿼리에서 numeric 필드가 필요하다면 multi field 로 고려해보는 것.
-Warm up the file system cache 를 적용해보는 것도 좋을듯. 
+- 여러 필드를 하나로 모으는 copy_to 도 적용할 수 있을듯.
+
+- Range 쿼리에서 numeric 필드가 필요하다면 multi field 로 고려해보는 것.
+- Warm up the file system cache 를 적용해보는 것도 좋을듯. 
 
 
