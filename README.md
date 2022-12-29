@@ -26,6 +26,8 @@ Elasticsearch 와 Lucene 을 공부하고 정리한 레파지토리 입니다.
 
 - [Tune for indexing speed](documents/Tune%20for%20indxeing%20speed.md)
 
+- [Tune for search speed](documents/Tune%20for%20search%20speed.md)
+
 ## Lucene 
 
 - [Lucene 과의 만남](documents/lucene_과의_만남.md)
