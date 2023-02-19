@@ -340,6 +340,7 @@ GET index/_search
   - text field 에는 기본적으로 disable 되어있
   - 기본적으로 이렇게 설정된다.`indices.fielddata.cache.size: 30%`
   - 모니터링은 이렇게 하면 된다. `GET /_nodes/stats/indices/fielddata`
+  - high cardinality 일 때는 이 사용량을 제한해야한다. 
 
   
 - Request Cache 의 경우에는 shard-level 의 cache 니까 똑같은 요청이 여러번와도 다른 샤드엥게 갈 수 있다. 정확하게는 replica 에게 가는거지.
