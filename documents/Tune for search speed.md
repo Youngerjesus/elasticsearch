@@ -311,18 +311,37 @@ GET index/_search
   - Filesystem cache
   - Request cache
   - Query cache
+  - Field data cache 
 
 - Request cache 란
   - Shard-level 의 캐시. (다른 애들은 Node-level 의 캐시)
   - 각각의 샤드에 있는 local result 를 캐시해두는 것.
   - 그래서 자주 사용된 검색 요청은 즉시 결과가 나갈 수 있는 것.
   - 캐시 무효화는 샤드가 refresh 될 때 invalidate 된다. (+ 데이터가 변한 것에만 해당.)
+  - 주로 적합한 경우는 logging usecase 의 경우다. 최근 로그는 계속해서 업데이트 되면서 캐시가 무효화되지만 오래된 로그 같은 경우는 업데이트가 안될거니까 캐시에서 전달해주면 되니까.
+  - "size" parameter 가 0 인 경우에만 캐시한다. 
+  - Date 의 now() 의 경우 캐시되지 않는다.
+    - `now-15m` 이건 재사용 안됨. 그러나 이렇게 round 처리하면 캐시된다. `now-15/m`  
+  - 모니터링은 이렇게 하면 된다. `GET /_nodes/stats/indices/request_cache`
 
 - Query cache 란
   - Filter context 로 사용된 쿼리의 결과들은 node query cache 로 저장된다. 이것도 빠르게 조회하기 위해서.
   - 노드별로 query cache 가 있다.
   - 기본적으로 10000 query 를 가질 수 있다. Heap 의 10% 정도.
+  - `indices.queries.cache.size` 로 설정된다. 기본 값은 10%임.
+  - 모니터링은 이렇게 하면 된다. `GET /_nodes/stats/indices/query_cache`
 
+- Filesystem cache 
+  - OS 의 page cache 라고 생각하면 된다. 
+  
+- Field Data cache
+  - 자주 사용하는 field 에 대한 데이터를 캐시해두는 것. 주로 sorting, aggregations, and scripted fields 에 사용된다. 
+  - heap 에 저장된다. 계산을 하면 latency 가 높아지기 때문에 저장한다고 하는듯. 매번 같은 계산을 하면 비효율적이니. 그래서 자주 사용하는 필드 데이터를 캐시해둔다.
+  - text field 에는 기본적으로 disable 되어있
+  - 기본적으로 이렇게 설정된다.`indices.fielddata.cache.size: 30%`
+  - 모니터링은 이렇게 하면 된다. `GET /_nodes/stats/indices/fielddata`
+
+  
 - Request Cache 의 경우에는 shard-level 의 cache 니까 똑같은 요청이 여러번와도 다른 샤드엥게 갈 수 있다. 정확하게는 replica 에게 가는거지.
   - 이걸 원하지 않는다면 preference 를 쓰라고 하는듯.
   - 이걸 통한 속도 개선은 너무 작은 차이인거 같다.
