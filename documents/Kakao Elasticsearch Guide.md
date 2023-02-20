@@ -115,6 +115,23 @@ Ex) 유저 생성 피드 저장 및 검색용, 애플리케이션 로그 분석�
 ## ES 팀에서 기본적으로 모니터링 하는 요소
 
 - JVM Heap 사용률 
+  - 건강한 JVM 의 경우에는 GC 가 이렇다. 
+    - Heap 그래프가 톱니 패턴임. (30% ~ 70% 를 왓다갓다하는.) 이것보다 높은 Heap 사용량은 GC 가 Heap 이 차는 걸 못따라가서 그렇다. 
+    - Young GC is processed quickly (within 50 ms)
+    - Young GC is not frequently executed (about 10 seconds)
+    - Old GC is processed quickly (within 1 seconds.)
+    - Old GC is not frequently executed (about 10 minutes or more)
+  
+  - Heap 사용량이 너무 높다면 이유는 많을 수 있다. 크게 이렇다고 하는듯. 
+    - Oversharding 
+      - 클러스터가 너무 많은 샤드의 metadata 상태를 관리해야하는게 부담이다. 샤드의 수가 많아질수록 오버헤드는 더 심해진다. 
+      - 이상적인 샤드는 a few GB ~ a few ten of GB 이다.
+    - Large aggregation sizes
+    - Excessive bulk size 
+    - Mapping issues
+    - Heap size incorrectly set
+    - JVM New ratio incorrectly set 
+
   - 번외로 기본적으로 RAM 의 50% 가 가장 밸런스 있는 값이라고 한다.
   - 캐시로 쓰일 메모리와 Heap 으로 쓰일 공간의 밸런스.
 
